@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
+
+  &[type='submit'] {
+    background-color: #57834e;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 2px solid #57834e;
+    outline-offset: 2px;
+    border-color: transparent;
+  }
+}
