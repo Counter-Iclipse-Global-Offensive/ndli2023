@@ -98,8 +98,20 @@
     <div class="newsLetter">
       <form action="">
         <h3>S'inscrire à la newsletter</h3>
-        <input type="text" name="nom" placeholder="Votre nom" />
-        <input type="email" name="email" id="email" placeholder="Votre email" />
+        <input
+          type="text"
+          name="nom"
+          id="name"
+          class="annoyingInput"
+          placeholder="Votre nom"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="annoyingInput"
+          placeholder="Votre email"
+        />
         <input type="submit" value="S'inscrire" id="subscribeBtn" />
       </form>
     </div>
@@ -175,6 +187,14 @@
         images.forEach((image) => {
           image.style.filter = 'invert(' + Math.random() * 100 + '%)';
           image.style.transform = `rotate(${Math.random() * 360}deg)`;
+        });
+
+        const annoyingInputs = document.querySelectorAll('.annoyingInput');
+        annoyingInputs.forEach((input) => {
+          input.addEventListener('input', () => {
+            window.navigator.vibrate(100);
+            window.scrollTo(0, 0);
+          });
         });
       } else {
         //remove filter from images

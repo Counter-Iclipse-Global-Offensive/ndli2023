@@ -180,3 +180,43 @@ span {
     width: 5rem;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  span {
+    flex-direction: column;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 3rem;
+
+    img {
+      width: 40%;
+    }
+  }
+
+  .section.top {
+    padding: 2rem;
+    height: fit-content;
+  }
+
+  .section.top .left {
+    width: 100%;
+  }
+
+  .section.top .right {
+    width: 100%;
+  }
+
+  .newsLetter {
+    margin-bottom: 10rem;
+  }
+
+  .footer {
+    min-height: 100vh;
+  }
+}
