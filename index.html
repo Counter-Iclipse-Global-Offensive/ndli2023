@@ -7,13 +7,119 @@
     <title>Le réchauffement climatique</title>
   </head>
   <body>
+    <div class="section top">
+      <div class="left">
+        <h1>Il faut changer.</h1>
+        <span>
+          <img src="resources/graphics/potted_plant_3d.png" alt="" />
+          <h3>Elle est bien notre planète non ? Alors sauvons la !</h3>
+        </span>
+      </div>
+      <div class="right">
+        <p>
+          Le changement climatique est un défi mondial majeur qui nécessite une
+          action urgente de notre part. Chacun d'entre nous, à titre individuel
+          et collectif, a le pouvoir d'apporter des changements significatifs
+          pour ralentir ce phénomène et préserver notre planète pour les
+          générations futures.
+        </p>
+      </div>
+    </div>
+    <div class="section colored one">
+      <img src="resources/graphics/automobile_3d.png" alt="Une plante" />
+      <div class="desc">
+        <h3>Adopter des modes de vie durables</h3>
+        <p>
+          Réduisez votre empreinte carbone en adoptant des gestes simples au
+          quotidien. Optez pour les transports en commun, le covoiturage, le
+          vélo ou la marche pour limiter les émissions de gaz à effet de serre
+          liées aux déplacements.
+        </p>
+      </div>
+    </div>
+    <div class="section colored two">
+      <img src="resources/graphics/globe_showing_europe-africa_3d.png" alt="" />
+      <div class="desc">
+        <h3>S'engager pour la préservation de l'environnement</h3>
+        <p>
+          Impliquez-vous dans des actions communautaires ou des initiatives
+          locales axées sur la protection de l'environnement. Participez à des
+          opérations de nettoyage, soutenez les projets de reboisement, et
+          sensibilisez votre entourage aux enjeux climatiques pour créer un
+          impact collectif.
+        </p>
+      </div>
+    </div>
+    <div class="section colored three">
+      <img src="resources/graphics/recycling_symbol_3d.png" alt="" />
+      <div class="desc">
+        <h3>Reduce, Reuse, Recycle</h3>
+        <p>
+          Adoptez une approche plus consciente de votre consommation en
+          réduisant les déchets. Privilégiez les produits durables et
+          réutilisables, recyclez autant que possible et favorisez le compostage
+          pour réduire la quantité de déchets envoyée en décharge.
+        </p>
+      </div>
+    </div>
+    <div class="section colored four">
+      <img src="resources/graphics/sun_with_face_3d.png" alt="" />
+      <div class="desc">
+        <h3>Soutenir les énergies renouvelables</h3>
+        <p>
+          Encouragez l'utilisation des énergies propres en optant pour des
+          sources d'énergie renouvelable telles que l'énergie solaire ou
+          éolienne.
+        </p>
+      </div>
+    </div>
+
+    <div class="section footer">
+      <h3 class="bold">
+        Ensemble, ces actions simples mais significatives peuvent faire une
+        réelle différence dans la lutte contre le changement climatique.
+      </h3>
+      <p>
+        Il est essentiel de sensibiliser et d'encourager les autres à agir
+        également. Chaque petit geste compte et en travaillant ensemble, nous
+        pouvons créer un impact positif pour préserver notre planète. Soyons les
+        acteurs du changement pour un avenir plus durable et respectueux de
+        l'environnement.
+      </p>
+    </div>
     <div class="newsLetter">
       <form action="">
         <h3>S'inscrire à la newsletter</h3>
         <input type="text" name="nom" placeholder="Votre nom" />
         <input type="email" name="email" id="email" placeholder="Votre email" />
-        <input type="submit" value="S'inscrire" />
+        <input type="submit" value="S'inscrire" id="subscribeBtn" />
       </form>
     </div>
+    <footer>
+      <p>Counter Iclipse Global Offensive - NDLI 2023</p>
+    </footer>
   </body>
+  <script>
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    subscribeBtn.addEventListener('mouseover', moveButton);
+
+    function moveButton() {
+      const btnRect = subscribeBtn.getBoundingClientRect();
+      const maxX = window.innerWidth * 0.8 - btnRect.width;
+      const maxY = window.innerHeight - 800 - window.scrollY - btnRect.height;
+
+      const xOffset = window.innerWidth * -0.2 + Math.random() * maxX;
+      const yOffset = Math.random() * maxY;
+
+      subscribeBtn.style.position = 'absolute';
+      subscribeBtn.style.left = `${xOffset}px`;
+      subscribeBtn.style.top = `${yOffset}px`;
+    }
+
+    const coloredSections = document.querySelectorAll('.colored');
+    //color the sections
+    coloredSections.forEach((section, index) => {
+      section.style.backgroundColor = `hsl(${index * 90}, 50%, 90%)`;
+    });
+  </script>
 </html>
