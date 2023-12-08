@@ -193,7 +193,9 @@
         annoyingInputs.forEach((input) => {
           input.addEventListener('input', () => {
             window.navigator.vibrate(100);
-            window.scrollTo(0, 0);
+            window.scrollBy(0, -200 + Math.random() * 400);
+            //close keyboard if open
+            document.activeElement.blur();
           });
         });
       } else {
