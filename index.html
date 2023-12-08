@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,52 +8,90 @@
   </head>
   <body>
     <header>
+      <div id="languageSwitch" data-value="">
+        <img data-language="fr" src="resources/graphics/fr_flag.png" alt="fr" />
+        <img
+          onload="applyLanguage()"
+          data-language="en"
+          src="resources/graphics/uk_flag.png"
+          alt="en"
+        />
+        <div id="languageIndicator"></div>
+      </div>
       <div>
-        <label for="isUgly">Site moche</label
-        ><input type="checkbox" name="isUgly" id="isUgly" />
+        <label for="isUgly" lang="fr">Site moche</label>
+        <label for="isUgly" lang="en">Ugly version</label>
+
+        <input type="checkbox" name="isUgly" id="isUgly" />
       </div>
     </header>
     <div class="section top">
       <div class="left">
-        <h1>Il faut changer.</h1>
+        <h1 lang="fr">Il faut changer.</h1>
+        <h1 lang="en">We need to change.</h1>
         <span>
           <img src="resources/graphics/potted_plant_3d.png" alt="" />
-          <h3>Elle est bien notre planète non ? Alors sauvons la !</h3>
+          <h3 lang="fr">
+            Elle est bien notre planète non ? Alors sauvons la !
+          </h3>
+          <h3 lang="en">Our planet is beautiful, let's save it !</h3>
         </span>
       </div>
       <div class="right">
-        <p>
+        <p lang="fr">
           “Le changement climatique est un défi mondial majeur qui nécessite une
           action urgente de notre part.”
         </p>
-        <p>
+        <p lang="en">
+          “Climate change is a major global challenge that requires urgent
+          action on our part.”
+        </p>
+        <p lang="fr">
           Chacun d'entre nous, à titre individuel et collectif, a le pouvoir
           d'apporter des changements significatifs pour ralentir ce phénomène et
           préserver notre planète pour les générations futures.
+        </p>
+        <p lang="en">
+          Each of us, both individually and collectively, has the power to bring
+          about significant changes to slow down this phenomenon and preserve
+          our planet for future generations.
         </p>
       </div>
     </div>
     <div class="section colored one">
       <img src="resources/graphics/automobile_3d.png" alt="Une plante" />
       <div class="desc">
-        <h3>Adopter des modes de vie durables</h3>
-        <p>
+        <h3 lang="fr">Adopter des modes de vie durables</h3>
+        <h3 lang="en">Adopt sustainable lifestyles</h3>
+        <p lang="fr">
           Réduisez votre empreinte carbone en adoptant des gestes simples au
           quotidien. Optez pour les transports en commun, le covoiturage, le
           vélo ou la marche pour limiter les émissions de gaz à effet de serre
           liées aux déplacements.
         </p>
+        <p lang="en">
+          Reduce your carbon footprint by adopting simple everyday gestures. Opt
+          for public transport, carpooling, cycling or walking to limit
+          greenhouse gas emissions related to travel.
+        </p>
       </div>
     </div>
     <div class="section colored two">
       <div class="desc">
-        <h3>S'engager pour la préservation de l'environnement</h3>
-        <p>
+        <h3 lang="fr">S'engager pour la préservation de l'environnement</h3>
+        <h3 lang="en">Commit to environmental preservation</h3>
+        <p lang="fr">
           Impliquez-vous dans des actions communautaires ou des initiatives
           locales axées sur la protection de l'environnement. Participez à des
           opérations de nettoyage, soutenez les projets de reboisement, et
           sensibilisez votre entourage aux enjeux climatiques pour créer un
           impact collectif.
+        </p>
+        <p lang="en">
+          Get involved in community actions or local initiatives focused on
+          environmental protection. Participate in clean-up operations, support
+          reforestation projects, and raise awareness among those around you
+          about climate issues to create a collective impact.
         </p>
       </div>
       <img src="resources/graphics/globe_showing_europe-africa_3d.png" alt="" />
@@ -62,57 +100,87 @@
       <img src="resources/graphics/recycling_symbol_3d.png" alt="" />
       <div class="desc">
         <h3>Reduce, Reuse, Recycle</h3>
-        <p>
+        <p lang="fr">
           Adoptez une approche plus consciente de votre consommation en
           réduisant les déchets. Privilégiez les produits durables et
           réutilisables, recyclez autant que possible et favorisez le compostage
           pour réduire la quantité de déchets envoyée en décharge.
         </p>
+        <p lang="en">
+          Adopt a more conscious approach to your consumption by reducing waste.
+          Choose durable and reusable products, recycle as much as possible and
+          promote composting to reduce the amount of waste sent to landfill.
+        </p>
       </div>
     </div>
     <div class="section colored four">
       <div class="desc">
-        <h3>Soutenir les énergies renouvelables</h3>
-        <p>
+        <h3 lang="fr">Soutenir les énergies renouvelables</h3>
+        <h3 lang="en">Support renewable energy</h3>
+        <p lang="fr">
           Encouragez l'utilisation des énergies propres en optant pour des
           sources d'énergie renouvelable telles que l'énergie solaire ou
           éolienne.
+        </p>
+        <p lang="en">
+          Encourage the use of clean energy by opting for renewable energy
+          sources such as solar or wind energy.
         </p>
       </div>
       <img src="resources/graphics/sun_with_face_3d.png" alt="" />
     </div>
 
     <div class="section footer">
-      <h3 class="bold">
+      <h3 class="bold" lang="fr">
         Ensemble, ces actions simples mais significatives peuvent faire une
         réelle différence dans la lutte contre le changement climatique.
       </h3>
-      <p>
+      <h3 class="bold" lang="en">
+        Together, these simple but meaningful actions can make a real difference
+        in the fight against climate change.
+      </h3>
+      <p lang="fr">
         Il est essentiel de sensibiliser et d'encourager les autres à agir
         également. Chaque petit geste compte et en travaillant ensemble, nous
         pouvons créer un impact positif pour préserver notre planète. Soyons les
         acteurs du changement pour un avenir plus durable et respectueux de
         l'environnement.
       </p>
+      <p lang="en">
+        It is essential to raise awareness and encourage others to act as well.
+        Every little gesture counts and by working together, we can create a
+        positive impact to preserve our planet. Let's be the actors of change
+        for a more sustainable and environmentally friendly future.
+      </p>
     </div>
     <div class="newsLetter">
       <form action="">
-        <h3>S'inscrire à la newsletter</h3>
+        <h3 lang="fr">S'inscrire à la newsletter</h3>
+        <h3 lang="en">Subscribe to the newsletter</h3>
         <input
           type="text"
           name="nom"
           id="name"
           class="annoyingInput"
           placeholder="Votre nom"
+          lang="fr"
+        />
+        <input
+          type="text"
+          name="nom"
+          id="name"
+          class="annoyingInput"
+          placeholder="Your name"
+          lang="en"
         />
         <input
           type="email"
           name="email"
           id="email"
           class="annoyingInput"
-          placeholder="Votre email"
+          placeholder="Email"
         />
-        <input type="submit" value="S'inscrire" id="subscribeBtn" />
+        <input type="submit" value="OK" id="subscribeBtn" />
       </form>
     </div>
     <footer>
@@ -211,6 +279,88 @@
           description.style.color = `#4d4d4d`;
         });
       }
+    }
+
+    //language switch
+    const languageSwitch = document.getElementById('languageSwitch');
+    const languageIndicator = document.getElementById('languageIndicator');
+    const flags = document.querySelectorAll('#languageSwitch > img');
+    const frFlag = document.querySelector('#languageSwitch > img:first-child');
+    const ukFlag = document.querySelector('#languageSwitch > img:last-child');
+    const fr = document.querySelectorAll('[lang="fr"]');
+    const en = document.querySelectorAll('[lang="en"]');
+
+    flags.forEach((button) => {
+      button.addEventListener('click', function () {
+        var language = this.getAttribute('data-language');
+        localStorage.setItem('language', language);
+
+        document.getElementById('languageSwitch').attributes[
+          'data-value'
+        ].value = language;
+
+        moveVisualLanguageIndicator(language);
+      });
+    });
+
+    function moveVisualLanguageIndicator(language) {
+      var languageElement = document.querySelector(
+        '#languageSwitch>img[data-language=' + language + ']'
+      );
+      var languageElementWidth = languageElement.offsetWidth;
+      var languageElementLeft = languageElement.offsetLeft;
+      languageIndicator.style.setProperty(
+        '--leftPos',
+        languageElementLeft + 'px'
+      );
+      languageIndicator.style.setProperty(
+        '--width',
+        languageElementWidth + 'px'
+      );
+
+      if (language === 'fr') {
+        fr.forEach((element) => {
+          element.style.display = 'block';
+        });
+        en.forEach((element) => {
+          element.style.display = 'none';
+        });
+      } else {
+        fr.forEach((element) => {
+          element.style.display = 'none';
+        });
+        en.forEach((element) => {
+          element.style.display = 'block';
+        });
+      }
+    }
+
+    var language = localStorage.getItem('language');
+    if (language) {
+      document.getElementById('languageSwitch').attributes['data-value'].value =
+        language;
+      moveVisualLanguageIndicator(language);
+    } else {
+      const browserLanguage = navigator.language;
+      if (browserLanguage === 'fr') {
+        language = 'fr';
+        localStorage.setItem('language', language);
+        document.getElementById('languageSwitch').attributes[
+          'data-value'
+        ].value = language;
+        moveVisualLanguageIndicator(language);
+      } else {
+        language = 'en';
+        localStorage.setItem('language', language);
+        document.getElementById('languageSwitch').attributes[
+          'data-value'
+        ].value = language;
+        moveVisualLanguageIndicator(language);
+      }
+    }
+
+    function applyLanguage() {
+      moveVisualLanguageIndicator(language);
     }
   </script>
 </html>
