@@ -7,6 +7,12 @@
     <title>Le réchauffement climatique</title>
   </head>
   <body>
+    <header>
+      <div>
+        <label for="isUgly">Site moche</label
+        ><input type="checkbox" name="isUgly" id="isUgly" />
+      </div>
+    </header>
     <div class="section top">
       <div class="left">
         <h1>Il faut changer.</h1>
@@ -17,11 +23,13 @@
       </div>
       <div class="right">
         <p>
-          Le changement climatique est un défi mondial majeur qui nécessite une
-          action urgente de notre part. Chacun d'entre nous, à titre individuel
-          et collectif, a le pouvoir d'apporter des changements significatifs
-          pour ralentir ce phénomène et préserver notre planète pour les
-          générations futures.
+          “Le changement climatique est un défi mondial majeur qui nécessite une
+          action urgente de notre part.”
+        </p>
+        <p>
+          Chacun d'entre nous, à titre individuel et collectif, a le pouvoir
+          d'apporter des changements significatifs pour ralentir ce phénomène et
+          préserver notre planète pour les générations futures.
         </p>
       </div>
     </div>
@@ -38,7 +46,6 @@
       </div>
     </div>
     <div class="section colored two">
-      <img src="resources/graphics/globe_showing_europe-africa_3d.png" alt="" />
       <div class="desc">
         <h3>S'engager pour la préservation de l'environnement</h3>
         <p>
@@ -49,6 +56,7 @@
           impact collectif.
         </p>
       </div>
+      <img src="resources/graphics/globe_showing_europe-africa_3d.png" alt="" />
     </div>
     <div class="section colored three">
       <img src="resources/graphics/recycling_symbol_3d.png" alt="" />
@@ -63,7 +71,6 @@
       </div>
     </div>
     <div class="section colored four">
-      <img src="resources/graphics/sun_with_face_3d.png" alt="" />
       <div class="desc">
         <h3>Soutenir les énergies renouvelables</h3>
         <p>
@@ -72,6 +79,7 @@
           éolienne.
         </p>
       </div>
+      <img src="resources/graphics/sun_with_face_3d.png" alt="" />
     </div>
 
     <div class="section footer">
@@ -105,21 +113,82 @@
 
     function moveButton() {
       const btnRect = subscribeBtn.getBoundingClientRect();
-      const maxX = window.innerWidth * 0.8 - btnRect.width;
-      const maxY = window.innerHeight - 800 - window.scrollY - btnRect.height;
+      const maxX = window.innerWidth - btnRect.width;
+      const maxY = window.innerHeight - btnRect.height;
 
-      const xOffset = window.innerWidth * -0.2 + Math.random() * maxX;
-      const yOffset = Math.random() * maxY;
+      const xOffset = Math.random() * (maxX * 2) - maxX;
+      const yOffset = Math.random() * (maxY * 2) - maxY;
 
       subscribeBtn.style.position = 'absolute';
       subscribeBtn.style.left = `${xOffset}px`;
       subscribeBtn.style.top = `${yOffset}px`;
     }
 
-    const coloredSections = document.querySelectorAll('.colored');
-    //color the sections
-    coloredSections.forEach((section, index) => {
-      section.style.backgroundColor = `hsl(${index * 90}, 50%, 90%)`;
+    const isUglyButton = document.getElementById('isUgly');
+    const isUgly = localStorage.getItem('isUgly');
+    let siteIsUgly = false;
+    if (isUgly) {
+      document.body.classList.add('ugly');
+      isUglyButton.checked = true;
+      siteIsUgly = true;
+    } else {
+      document.body.classList.remove('ugly');
+      isUglyButton.checked = false;
+      siteIsUgly = false;
+    }
+
+    const isUglyCheckbox = document.getElementById('isUgly');
+    isUglyCheckbox.addEventListener('change', () => {
+      if (isUglyCheckbox.checked) {
+        document.body.classList.add('ugly');
+        localStorage.setItem('isUgly', true);
+        siteIsUgly = true;
+      } else {
+        document.body.classList.remove('ugly');
+        localStorage.removeItem('isUgly');
+        siteIsUgly = false;
+      }
+      updateSiteAppearence();
     });
+
+    updateSiteAppearence();
+
+    function updateSiteAppearence() {
+      const coloredSections = document.querySelectorAll('.colored');
+      //color the sections
+      coloredSections.forEach((section, index) => {
+        if (siteIsUgly) {
+          section.style.backgroundColor = `hsl(${index + Math.random() * 90}, ${
+            50 + Math.random() * 90
+          }%, 50%)`;
+          section.querySelector('.desc > p').style.color = `hsl(${
+            index + Math.random() * 90
+          }, ${50 + Math.random() * 90}%, 50%)`;
+        } else {
+          section.style.backgroundColor = `hsl(${index * 90}, 50%, 90%)`;
+        }
+      });
+
+      if (siteIsUgly) {
+        //apply filter to images
+        const images = document.querySelectorAll('img');
+        images.forEach((image) => {
+          image.style.filter = 'invert(' + Math.random() * 100 + '%)';
+          image.style.transform = `rotate(${Math.random() * 360}deg)`;
+        });
+      } else {
+        //remove filter from images
+        const images = document.querySelectorAll('img');
+        images.forEach((image) => {
+          image.style.filter = 'none';
+          image.style.transform = 'none';
+        });
+
+        const descriptions = document.querySelectorAll('.desc > p');
+        descriptions.forEach((description) => {
+          description.style.color = `#4d4d4d`;
+        });
+      }
+    }
   </script>
 </html>
